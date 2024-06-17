@@ -1,12 +1,13 @@
 import urllib.request
 
 
-urls = ['https://www.mummesinc.com/s/PRESS_flyer_DeerCornpdf.pdf',
-        'https://www.mummesinc.com/s/PRESS_flyer_20DeerPellets.pdf',
-        'https://www.mummesinc.com/s/PRESS_flyer_16DeerPellets.pdf',
-        'https://www.mummesinc.com/s/PRESS_flyer_ProMax.pdf'
-        ]
-for url in urls:
-    file_path = '/Users/Jacob_Ide/mummes/pdfs/raw/{}'.format(url.split('/')[-1])
-    urllib.request.urlretrieve(url, file_path)
-    print("File downloaded successfully!")
+urls = ['https://file-examples.com/storage/fe3cb26995666504a8d6180/2017/10/file-sample_150kB.pdf']
+dest = '.'
+def download_file(urls=urls, dest=dest):
+    for url in urls:
+        file_path = '{}{}'.format(dest, url.split('/')[-1])
+        try:
+            urllib.request.urlretrieve(url, file_path)
+            print("{} downloaded successfully!".format(url.split('/')[-1]))
+        except Exception as e:
+            print("Error downloading {}: {}".format(url.split('/')[-1], e))
