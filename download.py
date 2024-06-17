@@ -1,8 +1,7 @@
 import urllib.request
 
-
-urls = ['https://file-examples.com/storage/fe3cb26995666504a8d6180/2017/10/file-sample_150kB.pdf']
-dest = '.'
+urls = ['https://file-examples.com/storage/feb74b6436666ff3195b073/2017/10/file-sample_150kB.pdf']
+dest = 'pdfs/raw/'
 def download_file(urls=urls, dest=dest):
     for url in urls:
         file_path = '{}{}'.format(dest, url.split('/')[-1])
